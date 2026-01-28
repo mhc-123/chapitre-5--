@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Déclic Conscient — Exercice (Chapitre 5)</title>
+
+  <style>
+    :root{
+      --vert:#A8C1A1;
+      --bleu-clair:#B8CBD0;
+      --bleu-nuit:#344D59;
+      --beige:#FFFAF3;
+      --azur:#9BB0B8;
+      --terra:#D49A89;
+      --marron:#815133;
+    }
+
+    /* Impression A4 */
+    @page{
+      size: A4;
+      margin: 18mm;
+    }
+
+    html, body{
+      height:100%;
+      background: var(--beige);
+      color: var(--bleu-nuit);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.35;
+    }
+
+    .page{
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .brand{
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: var(--bleu-nuit);
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .chip{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(184,203,208,0.45); /* bleu clair */
+      border: 1px solid rgba(155,176,184,0.6); /* azur */
+      color: var(--bleu-nuit);
+      white-space: nowrap;
+    }
+
+    .card{
+      background: #fff;
+      border: 1px solid rgba(155,176,184,0.55);
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 6px 18px rgba(52,77,89,0.06);
+    }
+
+    .title{
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: -0.2px;
+    }
+
+    .subtitle{
+      margin: 6px 0 0;
+      font-size: 13px;
+      color: rgba(52,77,89,0.80);
+    }
+
+    .separator{
+      margin: 14px 0;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(
+        90deg,
+        rgba(168,193,161,0.95),
+        rgba(184,203,208,0.85),
+        rgba(212,154,137,0.75)
+      );
+    }
+
+    .intro{
+      margin: 0 0 14px;
+      font-size: 14px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .box{
+      border-radius: 14px;
+      border: 1px solid rgba(155,176,184,0.6);
+      overflow:hidden;
+      background: var(--beige);
+    }
+
+    .box-header{
+      padding: 12px 12px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(155,176,184,0.55);
+      background: rgba(184,203,208,0.35);
+    }
+
+    .box-title{
+      margin:0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--bleu-nuit);
+    }
+
+    .tag{
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(155,176,184,0.65);
+      background: rgba(255,250,243,0.8);
+      color: rgba(52,77,89,0.85);
+      white-space: nowrap;
+    }
+
+    .box-body{
+      padding: 12px;
+      background: var(--beige);
+    }
+
+    .lines{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+
+    .line{
+      height: 22px;
+      border-bottom: 1px solid rgba(52,77,89,0.35);
+    }
+
+    .hint{
+      margin: 12px 0 0;
+      font-size: 12px;
+      color: rgba(52,77,89,0.72);
+    }
+
+    .footer{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      justify-content:space-between;
+      font-size: 11.5px;
+      color: rgba(52,77,89,0.70);
+    }
+
+    .quote{
+      margin: 0;
+      padding: 10px 12px;
+      border-left: 4px solid var(--terra);
+      background: rgba(212,154,137,0.12);
+      border-radius: 10px;
+      max-width: 520px;
+    }
+
+    .note{
+      text-align:right;
+      min-width: 180px;
+    }
+
+    /* Mobile: une colonne (mais à l’impression A4 ça reste propre) */
+    @media (max-width: 700px){
+      .grid{ grid-template-columns: 1fr; }
+      .note{ text-align:left; }
+    }
+
+    /* Impression: éviter les ombres trop fortes */
+    @media print{
+      body{ background:#fff; }
+      .card{ box-shadow:none; }
+      .box{ background:#fff; }
+      .box-body{ background:#fff; }
+      .chip{ border-color:#bbb; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="header">
+      <div class="brand">Déclic Conscient</div>
+      <div class="chip">Chapitre 5 — Exercice imprimable</div>
+    </div>
+
+    <section class="card">
+      <h1 class="title">Ce que je peux choisir / Ce que je subis encore</h1>
+      <p class="subtitle">Support de clarification — à compléter librement, sans chercher “la bonne réponse”.</p>
+
+      <div class="separator" aria-hidden="true"></div>
+
+      <p class="intro">
+        Parfois, le pouvoir de choix ne se situe pas dans une grande décision,
+        mais dans une marge plus petite : une manière de se positionner, une réponse, un “non”, un “oui”, un rythme.
+        <br><br>
+        Ici, tu peux simplement distinguer ce qui dépend encore de toi… et ce qui, pour l’instant, reste subi.
+      </p>
+
+      <div class="grid">
+        <div class="box">
+          <div class="box-header">
+            <h2 class="box-title">Aujourd’hui, je peux choisir :</h2>
+            <div class="tag">même un peu</div>
+          </div>
+          <div class="box-body">
+            <ul class="lines" aria-label="Lignes à compléter">
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+            </ul>
+            <p class="hint">Exemples : une réponse, une limite, une priorité, une façon de me parler.</p>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="box-header">
+            <h2 class="box-title">Aujourd’hui, je subis encore :</h2>
+            <div class="tag">sans jugement</div>
+          </div>
+          <div class="box-body">
+            <ul class="lines" aria-label="Lignes à compléter">
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+              <li class="line"></li>
+            </ul>
+            <p class="hint">Exemples : une contrainte, une attente, un rythme imposé, un flou.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p class="quote">“Reconnaître son pouvoir de choix, ce n’est pas tout changer. C’est retrouver un peu d’espace.”</p>
+        <div class="note">
+          Date : ____________<br>
+          Nom (optionnel) : ____________
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
